@@ -2,18 +2,14 @@
 
 package model
 
+type Dates struct {
+	CreatedDate    Date  `json:"createdDate"`
+	DueDate        *Date `json:"dueDate,omitempty"`
+	CompletionDate *Date `json:"completionDate,omitempty"`
+}
+
 type Mutation struct {
 }
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
-}
-
 type Query struct {
-}
-
-type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
 }

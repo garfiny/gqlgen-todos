@@ -86,8 +86,15 @@ models:
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
   Todo:
+    model: "github.com/garfiny/gqlgen-todos/graph/model.Todo"
     fields:
       user:
         resolver: true
-
-
+      dates:
+        resolver: false
+  User:
+    model:  "github.com/garfiny/gqlgen-todos/graph/model.User"
+  YesNo:
+    model: "github.com/garfiny/gqlgen-todos/graph/model.YesNo"
+  Date:
+    model: "github.com/garfiny/gqlgen-todos/graph/model.Date"

@@ -6,4 +6,10 @@ type Todo struct {
 	Done   bool   `json:"done"`
 	UserID string `json:"userId"`
 	User   *User  `json:"user"`
+	Dates  Dates  `json:"dates"`
+}
+
+type NewTodo struct {
+	Text   string `json:"text"`
+	UserID string `json:"userId"`
 }

@@ -2,11 +2,21 @@
 #
 # https://gqlgen.com/getting-started/
 
+scalar Date
+scalar YesNo
+
 type Todo {
   id: ID!
   text: String!
   done: Boolean!
   user: User!
+  dates: Dates!
+}
+
+type Dates {
+    createdDate: Date!
+    dueDate: Date
+    completionDate: Date
 }
 
 type User {
