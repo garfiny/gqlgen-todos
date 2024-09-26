@@ -7,6 +7,7 @@ package graph
 import (
 	"context"
 	"crypto/rand"
+	"errors"
 	"fmt"
 	"math/big"
 
@@ -32,7 +33,12 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 
 // User is the resolver for the user field.
 func (r *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: User - user"))
+	for _, u := range users {
+		if u.ID == obj.UserID {
+			return u, nil
+		}
+	}
+	return new(model.User), errors.New("User Not Found")
 }
 
 // Mutation returns MutationResolver implementation.
