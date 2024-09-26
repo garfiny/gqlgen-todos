@@ -6,4 +6,11 @@ package graph
 
 //go:generate go run github.com/99designs/gqlgen generate
 
-type Resolver struct{}
+import (
+	"github.com/garfiny/gqlgen-todos/graph/model"
+)
+
+type Resolver struct {
+	TodoList []*model.Todo
+	WishList []*model.Wish
+}

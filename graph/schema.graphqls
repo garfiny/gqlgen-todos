@@ -1,6 +1,3 @@
-# GraphQL schema example
-#
-# https://gqlgen.com/getting-started/
 
 scalar Date
 scalar YesNo
@@ -32,6 +29,7 @@ type Wish {
 
 type Query {
   todos: [Todo!]!
+  wishList: [Wish!]!
 }
 
 input NewTodo {
@@ -39,6 +37,11 @@ input NewTodo {
   userId: String!
 }
 
+input NewWish {
+    text: String!
+}
+
 type Mutation {
   createTodo(input: NewTodo!): Todo!
+  createWish(input: NewWish!): Wish!
 }

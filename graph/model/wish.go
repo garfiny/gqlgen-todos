@@ -5,3 +5,7 @@ type Wish struct {
 	Text  string `json:"text"`
 	Todos []Todo `json: todos`
 }
+
+type NewWish struct {
+	Text string `json:"text"`
+}

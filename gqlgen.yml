@@ -98,3 +98,5 @@ models:
     model: "github.com/garfiny/gqlgen-todos/graph/model.YesNo"
   Date:
     model: "github.com/garfiny/gqlgen-todos/graph/model.Date"
+  Wish:
+    model: "github.com/garfiny/gqlgen-todos/graph/model.Wish"

@@ -22,18 +22,28 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 		ID:   fmt.Sprintf("T%d", randNumber),
 		User: &model.User{ID: input.UserID, Name: "user " + input.UserID},
 	}
-	todos = append(todos, todo)
+	r.TodoList = append(r.TodoList, todo)
 	return todo, nil
+}
+
+// CreateWish is the resolver for the createWish field.
+func (r *mutationResolver) CreateWish(ctx context.Context, input model.NewWish) (*model.Wish, error) {
+	panic(fmt.Errorf("not implemented: CreateWish - createWish"))
 }
 
 // Todos is the resolver for the todos field.
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	return todos, nil
+	return r.TodoList, nil
+}
+
+// WishList is the resolver for the wishList field.
+func (r *queryResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
+	panic(fmt.Errorf("not implemented: WishList - wishList"))
 }
 
 // User is the resolver for the user field.
 func (r *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, error) {
-	for _, u := range users {
+	for _, u := range Users {
 		if u.ID == obj.UserID {
 			return u, nil
 		}
