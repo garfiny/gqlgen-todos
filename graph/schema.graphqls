@@ -24,6 +24,12 @@ type User {
   name: String!
 }
 
+type Wish {
+  id: ID!
+  text: String!
+  todos: [Todo!]!
+}
+
 type Query {
   todos: [Todo!]!
 }
