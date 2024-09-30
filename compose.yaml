@@ -1,5 +1,5 @@
 services:
-  # web:
+  # todo_server:
   #   build: .
   #   ports:
   #     - "80:8000"
@@ -23,9 +23,14 @@ services:
       interval: 1s
       timeout: 5s
       retries: 10
+    volumes:
+      - pg_data:/var/lib/pgsql/data
  
   # adminer:
   #   image: adminer
   #   restart: always
   #   ports:
   #     - 8080:8080
+
+volumes:
+  pg_data:
