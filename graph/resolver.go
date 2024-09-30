@@ -7,9 +7,6 @@ package graph
 //go:generate go run github.com/99designs/gqlgen generate
 
 import (
-	"context"
-	"fmt"
-
 	"github.com/garfiny/gqlgen-todos/graph/model"
 )
 
@@ -18,7 +15,7 @@ type Resolver struct {
 	Wishes   []*model.Wish
 }
 
-func (r *wishResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
-	fmt.Printf("WishList invoked in WishResolver")
-	return r.Wishes, nil
-}
+// func (r *wishResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
+// 	fmt.Printf("WishList invoked in WishResolver")
+// 	return r.Wishes, nil
+// }
