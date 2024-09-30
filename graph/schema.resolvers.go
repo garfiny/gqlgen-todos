@@ -38,6 +38,7 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 
 // WishList is the resolver for the wishList field.
 func (r *queryResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
+	fmt.Printf("WishList invoked in QueryResolver")
 	return r.Wishes, nil
 }
 

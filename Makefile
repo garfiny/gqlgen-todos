@@ -5,4 +5,4 @@ build:
 	GO111MODULE=on go build -o ./cmd/server server.go
 
 run: build
-	./server
+	./cmd/server
