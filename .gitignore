@@ -1,3 +1,4 @@
 server
 ./cmd/server
 **/*.swp
+.vscode/***
