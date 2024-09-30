@@ -38,7 +38,7 @@ func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 
 // WishList is the resolver for the wishList field.
 func (r *queryResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
-	panic(fmt.Errorf("not implemented: WishList - wishList"))
+	return r.Wishes, nil
 }
 
 // User is the resolver for the user field.
@@ -51,6 +51,11 @@ func (r *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, 
 	return new(model.User), errors.New("User Not Found")
 }
 
+// Todos is the resolver for the todos field.
+func (r *wishResolver) Todos(ctx context.Context, obj *model.Wish) ([]*model.Todo, error) {
+	panic(fmt.Errorf("not implemented: Todos - todos"))
+}
+
 // Mutation returns MutationResolver implementation.
 func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
 
@@ -60,6 +65,10 @@ func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 // Todo returns TodoResolver implementation.
 func (r *Resolver) Todo() TodoResolver { return &todoResolver{r} }
 
+// Wish returns WishResolver implementation.
+func (r *Resolver) Wish() WishResolver { return &wishResolver{r} }
+
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type todoResolver struct{ *Resolver }
+type wishResolver struct{ *Resolver }

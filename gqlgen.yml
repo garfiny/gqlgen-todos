@@ -100,3 +100,6 @@ models:
     model: "github.com/garfiny/gqlgen-todos/graph/model.Date"
   Wish:
     model: "github.com/garfiny/gqlgen-todos/graph/model.Wish"
+    fields:
+      todos:
+        resolver: true

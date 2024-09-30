@@ -7,10 +7,16 @@ package graph
 //go:generate go run github.com/99designs/gqlgen generate
 
 import (
+	"context"
+
 	"github.com/garfiny/gqlgen-todos/graph/model"
 )
 
 type Resolver struct {
 	TodoList []*model.Todo
-	WishList []*model.Wish
+	Wishes   []*model.Wish
+}
+
+func (r *wishResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
+	return r.Wishes, nil
 }
