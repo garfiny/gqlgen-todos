@@ -6,13 +6,13 @@ toolchain go1.22.7
 
 require (
 	github.com/99designs/gqlgen v0.17.53
+	github.com/go-pg/pg/v10 v10.13.0
 	github.com/vektah/gqlparser/v2 v2.5.16
 )
 
 require (
 	github.com/agnivade/levenshtein v1.1.1 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.4 // indirect
-	github.com/go-pg/pg/v10 v10.13.0 // indirect
 	github.com/go-pg/zerochecker v0.2.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect

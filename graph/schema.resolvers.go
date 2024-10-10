@@ -19,7 +19,7 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 	todo := &model.Todo{
 		Text: input.Text,
 		ID:   fmt.Sprintf("T%d", randNumber),
-		User: &model.User{ID: input.UserID, Name: "user " + input.UserID},
+		User: &model.User{ID: input.UserID, Name: fmt.Sprintf("user %d", input.UserID)},
 	}
 	r.TodoList = append(r.TodoList, todo)
 	return todo, nil
@@ -50,9 +50,24 @@ func (r *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, 
 	return u, nil
 }
 
+// Username is the resolver for the username field.
+func (r *userResolver) Username(ctx context.Context, obj *model.User) (string, error) {
+	panic(fmt.Errorf("not implemented: Username - username"))
+}
+
+// Email is the resolver for the email field.
+func (r *userResolver) Email(ctx context.Context, obj *model.User) (string, error) {
+	panic(fmt.Errorf("not implemented: Email - email"))
+}
+
 // Todos is the resolver for the todos field.
 func (r *wishResolver) Todos(ctx context.Context, obj *model.Wish) ([]*model.Todo, error) {
 	panic(fmt.Errorf("not implemented: Todos - todos"))
+}
+
+// UserID is the resolver for the userId field.
+func (r *newTodoResolver) UserID(ctx context.Context, obj *model.NewTodo, data string) error {
+	panic(fmt.Errorf("not implemented: UserID - userId"))
 }
 
 // Mutation returns MutationResolver implementation.
@@ -64,10 +79,18 @@ func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 // Todo returns TodoResolver implementation.
 func (r *Resolver) Todo() TodoResolver { return &todoResolver{r} }
 
+// User returns UserResolver implementation.
+func (r *Resolver) User() UserResolver { return &userResolver{r} }
+
 // Wish returns WishResolver implementation.
 func (r *Resolver) Wish() WishResolver { return &wishResolver{r} }
+
+// NewTodo returns NewTodoResolver implementation.
+func (r *Resolver) NewTodo() NewTodoResolver { return &newTodoResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
 type todoResolver struct{ *Resolver }
+type userResolver struct{ *Resolver }
 type wishResolver struct{ *Resolver }
+type newTodoResolver struct{ *Resolver }

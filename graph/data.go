@@ -11,13 +11,13 @@ var Wishes = []*model.Wish{
 				ID:     "3",
 				Text:   "Work Hard",
 				Done:   false,
-				UserID: "1",
+				UserID: 1,
 			},
 			{
 				ID:     "4",
 				Text:   "Be Creative",
 				Done:   false,
-				UserID: "1",
+				UserID: 1,
 			},
 		},
 	},
@@ -28,23 +28,23 @@ var Todos = []*model.Todo{
 		ID:     "1",
 		Text:   "test",
 		Done:   false,
-		UserID: "2",
+		UserID: 2,
 	},
 	{
 		ID:     "2",
 		Text:   "test",
 		Done:   false,
-		UserID: "1",
+		UserID: 1,
 	},
 }
 
 var Users = []*model.User{
 	{
-		ID:   "1",
+		ID:   1,
 		Name: "garfiny",
 	},
 	{
-		ID:   "2",
+		ID:   2,
 		Name: "John",
 	},
 }

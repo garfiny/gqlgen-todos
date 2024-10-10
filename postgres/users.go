@@ -16,5 +16,4 @@ func (u *UserRepo) GetUserByID(id string) (*model.User, error) {
 		return nil, err
 	}
 	return &user, nil
-
 }
