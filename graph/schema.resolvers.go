@@ -7,7 +7,6 @@ package graph
 import (
 	"context"
 	"crypto/rand"
-	"errors"
 	"fmt"
 	"math/big"
 
