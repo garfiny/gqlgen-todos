@@ -17,12 +17,12 @@ createdb todos_dev -h localhost -U postgres
 ### Migrate
 
 ```
-migrate --path "postgres/migrations" --database "$POSTGRESSQL_URL" up
+migrate --path "postgres/migrations" --database "$POSTGRESQL_URL" up
 ```
 
 ### Rollback
 ```
-migrate --path "postgres/migrations" --database "$POSTGRESSQL_URL" down
+migrate --path "postgres/migrations" --database "$POSTGRESQL_URL" down
 ```
 
 
