@@ -44,13 +44,11 @@ func (r *queryResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
 
 // User is the resolver for the user field.
 func (r *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, error) {
-
-	for _, u := range Users {
-		if u.ID == obj.UserID {
-			return u, nil
-		}
+	u, err := r.UserRepo.GetUserById(obj.UserID)
+	if err != nil {
+		return nil, err
 	}
-	return new(model.User), errors.New("User Not Found")
+	return u, nil
 }
 
 // Todos is the resolver for the todos field.

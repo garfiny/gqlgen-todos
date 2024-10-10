@@ -1,10 +1,8 @@
 package postgres
 
 import (
-	"context"
-	"fmt"
-
 	"github.com/go-pg/pg/v10"
+	"github.com/garfiny/gqlgen-todos/graph/model"
 )
 
 type UserRepo struct {
@@ -12,8 +10,8 @@ type UserRepo struct {
 }
 
 func (u *UserRepo) GetUserByID(id string) (*model.User, error) {
-	var user models.User
-	err := u.DB.Model(&user).Where("id =?", id).Frist()
+	var user model.User
+	err := u.DB.Model(&user).Where("id =?", id).First()
 	if err != nil {
 		return nil, err
 	}
