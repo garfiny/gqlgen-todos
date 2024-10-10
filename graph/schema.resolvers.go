@@ -43,7 +43,7 @@ func (r *queryResolver) WishList(ctx context.Context) ([]*model.Wish, error) {
 
 // User is the resolver for the user field.
 func (r *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, error) {
-	u, err := r.UserRepo.GetUserById(obj.UserID)
+	u, err := r.UserRepo.GetUserByID(obj.UserID)
 	if err != nil {
 		return nil, err
 	}
