@@ -35,6 +35,8 @@ func main() {
 	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{
 		TodoList: graph.Todos,
 		Wishes:   graph.Wishes,
+		TodoRepo: postgres.TodoRepo { DB: DB },
+		UserRepo: postgres.UserRepo { DB: DB },
 	}}))
 
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
