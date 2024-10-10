@@ -8,7 +8,7 @@ package graph
 
 import (
 	"github.com/garfiny/gqlgen-todos/graph/model"
-	"github.com/garfiny/gqlgen-todos/graph/postgres"
+	"github.com/garfiny/gqlgen-todos/postgres"
 )
 
 type Resolver struct {
